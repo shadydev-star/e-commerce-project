@@ -146,6 +146,17 @@ body {
     
   }
 
+  h1{
+    font-size: 18px;
+  }
+  
+  span{
+    font-size: 11px;
+   
+  }
+
+  
+
   .sidebar {
     position: fixed;
     top: 0;
@@ -211,7 +222,7 @@ body {
 }
 
 .admin-info {
-  font-size: 14px;
+  
   color: #555;
 }
 
