@@ -8,6 +8,31 @@
 <body>
     
 
+    <div class="admin-container">
+     <aside class="sidebar" id="side-bar">
+      <h2>Admin Panel</h2>
+      <button id="closeSidebar" class="hamburger close-btn">&#10005;</button>
+      <nav>
+        <ul>
+        <li><a href="index.html">📊 Dashboard</a></li>
+        <li><a href="admin-products.html">📦 Products</a></li>
+        <li><a href="orders.html">🧾 Orders</a></li>
+        <li><a href="profile.html">👤 Profile</a></li>
+        <li><a href="settings.html">⚙️ Settings</a></li>
+        </ul>
+
+      </nav>
+    </aside>
+
+    <main class="main-content">
+     <header class="header">
+        <button id="menuToggle" class="hamburger">&#9776;</button>
+        <h1>Welcome, Admin</h1>
+        <div class="admin-info">
+        <span>admin@example.com</span>
+    </div>
+    </header>
+
     <section class="product-management">
         <div class="pm-header">
             <h2>Product Management</h2>
@@ -49,6 +74,7 @@
             </tbody>
         </table>
         </section>
+        </main>
 
         <!-- Add Product Form (Hidden by default) -->
         <div class="modal" id="productModal">
@@ -71,10 +97,24 @@
             </form>
         </div>
         </div>
+    </div>
 
 
     <script>
-        const modal = document.getElementById('productModal');
+
+        const menuToggle = document.getElementById('menuToggle');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const sidebar = document.getElementById('side-bar');
+
+        // Sidebar open/close logic
+        menuToggle?.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        closeSidebar?.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+                const modal = document.getElementById('productModal');
         const addBtn = document.getElementById('addProductBtn');
         const closeBtn = document.getElementById('closeModal');
 
