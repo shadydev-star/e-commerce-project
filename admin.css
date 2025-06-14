@@ -645,3 +645,10 @@ body.dark-theme button {
   color: #f1f1f1;
   border-color: #444;
 }
+
+.password-error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
