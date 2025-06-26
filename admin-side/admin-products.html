@@ -36,43 +36,53 @@
     <section class="product-management">
         <div class="pm-header">
             <h2>Product Management</h2>
-            <button id="addProductBtn">+ Add Product</button>
+           <a href="admin-add-product.html" class="save-btn">+ Add Product</a>
+
         </div>
 
         <table class="product-table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price ($)</th>
-                <th>Stock</th>
-                <th>Actions</th>
+           <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price ($)</th>
+            <th>Category</th>
+            <th>Actions</th>
             </tr>
-            </thead>
+
             <tbody id="productList">
-            <!-- Product rows will go here -->
-            <tr>
-                <td>001</td>
-                <td>Wireless Mouse</td>
-                <td>19.99</td>
-                <td>50</td>
-                <td>
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>002</td>
-                <td>Mechanical Keyboard</td>
-                <td>59.99</td>
-                <td>20</td>
-                <td>
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-                </td>
-            </tr>
+  <!-- Dynamic rows will be inserted here -->
             </tbody>
+
         </table>
+
+                <!-- Edit Product Modal -->
+        <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h3>Edit Product</h3>
+            <form id="editProductForm">
+            <input type="hidden" id="editId" />
+
+            <label for="editName">Name</label>
+            <input type="text" id="editName" required />
+
+            <label for="editPrice">Price</label>
+            <input type="number" id="editPrice" step="0.01" required />
+
+            <label for="editCategory">Category</label>
+            <select id="editCategory" required>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="food">Food</option>
+            </select>
+
+            <div class="modal-actions">
+                <button type="submit">Save Changes</button>
+                <button type="button" id="closeEditModal">Cancel</button>
+            </div>
+            </form>
+        </div>
+        </div>
+
         </section>
         </main>
 
@@ -100,38 +110,7 @@
     </div>
 
 
-    <script>
-
-        const menuToggle = document.getElementById('menuToggle');
-        const closeSidebar = document.getElementById('closeSidebar');
-        const sidebar = document.getElementById('side-bar');
-
-        // Sidebar open/close logic
-        menuToggle?.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-
-        closeSidebar?.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-        });
-                const modal = document.getElementById('productModal');
-        const addBtn = document.getElementById('addProductBtn');
-        const closeBtn = document.getElementById('closeModal');
-
-        addBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-            modal.style.display = 'none';
-            }
-        });
-    </script>
+    <script type="module" src="adminproduct.js"></script>
 
 </body>
 </html>
