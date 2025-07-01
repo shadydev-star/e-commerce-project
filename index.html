@@ -30,42 +30,48 @@
       z-index: 1100;
     }
 
-    @media (max-width: 600px) {
-      .hamburger {
-        display: block;
-      }
+   @media (max-width: 600px) {
+  .hamburger {
+    display: block;
+    z-index: 1101;
+  }
 
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        z-index: 1000;
-        background: linear-gradient(180deg, var(--primary), var(--secondary));
-        transition: left 0.3s ease;
-      }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    z-index: 1100;
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    transition: left 0.3s ease;
+  }
 
-      .sidebar.active {
-        left: 0;
-      }
+  .sidebar.active {
+    left: 0;
+  }
 
-      .main-content {
-        transition: margin-left 0.3s ease;
-      }
+  .main-content {
+    transition: margin-left 0.3s ease;
+  }
 
-      .main-content.shifted {
-        margin-left: 250px;
-      }
+  .main-content.shifted {
+    margin-left: 250px;
+  }
 
-      .sidebar.active .close-sidebar-btn {
-        display: block;
-      }
+  .close-sidebar-btn {
+    display: block;
+  }
 
-      .sidebar.active ~ .main-content .hamburger {
-        display: none;
-      }
-    }
+  .sidebar:not(.active) .close-sidebar-btn {
+    display: none;
+  }
+
+  .sidebar.active ~ .main-content .hamburger {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -251,20 +257,36 @@
 
   <!-- Sidebar Toggle Script -->
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const closeSidebar = document.getElementById("closeSidebar");
-    const sidebar = document.getElementById("sidebar");
-    const mainContent = document.getElementById("mainContent");
+  const menuToggle = document.getElementById("menuToggle");
+  const closeSidebar = document.getElementById("closeSidebar");
+  const sidebar = document.getElementById("sidebar");
+  const mainContent = document.getElementById("mainContent");
 
-    menuToggle?.addEventListener("click", () => {
-      sidebar.classList.add("active");
-      mainContent.classList.add("shifted");
-    });
+  menuToggle?.addEventListener("click", () => {
+    sidebar.classList.add("active");
+    mainContent.classList.add("shifted");
+    closeSidebar.style.display = "block";
+  });
 
-    closeSidebar?.addEventListener("click", () => {
+  closeSidebar?.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    mainContent.classList.remove("shifted");
+    closeSidebar.style.display = "none";
+  });
+
+  // Optional: close sidebar on outside click
+  document.addEventListener("click", (e) => {
+    if (
+      sidebar.classList.contains("active") &&
+      !sidebar.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
       sidebar.classList.remove("active");
       mainContent.classList.remove("shifted");
-    });
-  </script>
+      closeSidebar.style.display = "none";
+    }
+  });
+</script>
+
 </body>
 </html>
