@@ -160,40 +160,8 @@
         </a>
         
       </div>
-      <div class="products-grid">
-        <div class="product-card">
-          <div class="product-image"><i class="fas fa-mobile-alt"></i></div>
-          <div class="product-info">
-            <div class="product-title">Smartphone X Pro</div>
-            <div class="product-price">$899.99</div>
-            <div class="product-stock"><span>In Stock:</span> <span>48</span></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image"><i class="fas fa-laptop"></i></div>
-          <div class="product-info">
-            <div class="product-title">UltraBook Pro</div>
-            <div class="product-price">$1,299.99</div>
-            <div class="product-stock"><span>In Stock:</span> <span>22</span></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image"><i class="fas fa-headphones"></i></div>
-          <div class="product-info">
-            <div class="product-title">Wireless Headphones</div>
-            <div class="product-price">$199.99</div>
-            <div class="product-stock"><span>In Stock:</span> <span>64</span></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="product-image"><i class="fas fa-tablet-alt"></i></div>
-          <div class="product-info">
-            <div class="product-title">Tablet Mini</div>
-            <div class="product-price">$499.99</div>
-            <div class="product-stock"><span>In Stock:</span> <span>15</span></div>
-          </div>
-        </div>
-      </div>
+      <div class="products-grid" id="recentProducts"></div>
+
     </div>
 
     <!-- Orders Table -->
@@ -256,37 +224,8 @@
   </div>
 
   <!-- Sidebar Toggle Script -->
-  <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const closeSidebar = document.getElementById("closeSidebar");
-  const sidebar = document.getElementById("sidebar");
-  const mainContent = document.getElementById("mainContent");
+ <script type="module" src="main.js"></script>
 
-  menuToggle?.addEventListener("click", () => {
-    sidebar.classList.add("active");
-    mainContent.classList.add("shifted");
-    closeSidebar.style.display = "block";
-  });
-
-  closeSidebar?.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    mainContent.classList.remove("shifted");
-    closeSidebar.style.display = "none";
-  });
-
-  // Optional: close sidebar on outside click
-  document.addEventListener("click", (e) => {
-    if (
-      sidebar.classList.contains("active") &&
-      !sidebar.contains(e.target) &&
-      !menuToggle.contains(e.target)
-    ) {
-      sidebar.classList.remove("active");
-      mainContent.classList.remove("shifted");
-      closeSidebar.style.display = "none";
-    }
-  });
-</script>
 
 </body>
 </html>
