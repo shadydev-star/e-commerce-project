@@ -230,13 +230,14 @@
         }
 
         .creasebtn {
-            background-color: #f60909;
+            background: #ff6b6b;
             color: white;
-            font-size: large;
             border: none;
-            padding: 8px;
-            border-radius: 50%;
+            padding: 0.5rem ;
+            border-radius: 10px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         /* Products Section */
@@ -629,7 +630,7 @@
         }
 
         .item-info {
-            flex: 1;
+            flex: 0.5;
         }
 
         .item-name {
@@ -723,10 +724,10 @@
         }
 
         .checkout-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            
         }
 
         .form-group {
@@ -771,6 +772,7 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 10px;
         }
 
         .place-order-btn:hover {
