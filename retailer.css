@@ -589,11 +589,14 @@
             padding: 2rem;
             max-height: 60vh;
             overflow-y: auto;
+            
         }
 
         .cart-items {
             margin-bottom: 2rem;
-            
+            display: flex;
+            flex-wrap: wrap;
+        
             
         }
 
